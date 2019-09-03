@@ -1,3 +1,4 @@
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.Test;
@@ -94,6 +95,12 @@ public class ContatoTest {
 		} catch (IllegalArgumentException iae) {
 			
 		}
+	}
+	
+	@Test
+	public void testToString() {
+		Contato contato =  new Contato("Carlos", "Silva", "2456520");
+		assertEquals(contato.toString(), "Carlos Silva - 2456520");
 	}
 
 }

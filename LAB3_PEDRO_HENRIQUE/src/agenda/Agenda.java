@@ -11,7 +11,7 @@ import java.util.Arrays;
 public class Agenda {
 	
 	/**
-	 * Representa um array de contatos
+	 * Representa um array de contatos.
 	 */
 	private Contato[] contatos;
 	
@@ -45,12 +45,7 @@ public class Agenda {
 	 * "POSICAO INVALIDA!".
 	 */
 	public String pesquisarContato(int posicao) {
-		Contato contato = this.contatos[posicao - 1];
-		try {
-			return contato.toString();
-		} catch(NullPointerException npe) {
-			return "POSIÇÃO INVÁLIDA!";
-		}
+		return this.contatos[posicao - 1].toString();
 	}
 	
 	/**

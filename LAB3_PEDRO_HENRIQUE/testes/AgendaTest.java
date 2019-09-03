@@ -27,6 +27,7 @@ public class AgendaTest {
 		for(int i = 0; i < 100; i++) {
 			agenda.cadastrarContato(i + 1, "Carlos " + i, "Almeida " + i, Integer.toString(gerador.nextInt()));
 		}
+		System.out.println(agenda.listarContatos());
 	}
 	
 	@Test
@@ -46,6 +47,21 @@ public class AgendaTest {
 		agenda.cadastrarContato(31, "Henrique", "Almeida", "4612");
 		agenda2.cadastrarContato(20, "Carlos", "Souza", "9741");
 		agenda2.cadastrarContato(31, "Henrique", "Almeida", "3241");
-		assertEquals(false, agenda.equals(agenda2));
+		assertFalse(agenda.equals(agenda2));
+	}
+	
+	@Test
+	public void testListaContatos() {
+		agenda = new Agenda();
+		agenda.cadastrarContato(10, "Carlos", "Souza", "9845");
+		agenda.cadastrarContato(31, "Henrique", "Almeida", "4612");
+		assertEquals(agenda.listarContatos(), "10 - Carlos Souza\n" +
+											  "31 - Henrique Almeida\n");
+	}
+	
+	@Test
+	public void testPesquisaContato() {
+		agenda = new Agenda();
+		
 	}
 }

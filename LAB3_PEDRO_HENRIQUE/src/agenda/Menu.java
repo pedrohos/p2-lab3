@@ -4,8 +4,29 @@ import java.util.Scanner;
 
 public class Menu {
 	
+	static Agenda agenda = new Agenda();
+	static Scanner sc = new Scanner(System.in);
+	
+	public static boolean cadastrarContato(int posicao) {
+		try {
+			System.out.print("Nome: ");
+			String nome = sc.nextLine();
+			
+			System.out.print("Sobrenome: ");
+			String sobrenome = sc.nextLine();
+			
+			System.out.print("Telefone: ");
+			String telefone = sc.nextLine();
+			
+			agenda.cadastrarContato(posicao, nome, sobrenome, telefone);
+		} catch(NullPointerException npe) {
+			return false;
+		}
+		return true;
+	}
+	
 	public static void main(String[] args) {
-		Agenda agenda = new Agenda();
+		
 		
 		final String MENU = "(C)adastrar Contato\n" + 
                 			"(L)istar Contatos\n" + 
@@ -14,7 +35,6 @@ public class Menu {
                 			"\n" + 
                 			"Opção> ";
 		while (true) {
-			Scanner sc = new Scanner(System.in);
 			System.out.print(MENU);
 			String entrada = sc.nextLine();
 			if (entrada.equals("S")) {
@@ -32,17 +52,10 @@ public class Menu {
 					System.out.println("POSIÇÃO INVÁLIDA!\n");
 					break;
 				}
-				System.out.print("Nome: ");
-				String nome = sc.nextLine();
 				
-				System.out.print("Sobrenome: ");
-				String sobrenome = sc.nextLine();
-				
-				System.out.print("Telefone: ");
-				String telefone = sc.nextLine();
-				System.out.println("CADASTRO REALIZADO!\n");
-				
-				agenda.cadastrarContato(posicao, nome, sobrenome, telefone);
+				if (cadastrarContato(posicao) == true) {
+					System.out.println("CADASTRO REALIZADO!\n");
+				}
 				
 				break;
 				
@@ -56,17 +69,16 @@ public class Menu {
 				int posicaoExibir = sc.nextInt();
 				sc.nextLine();
 				System.out.print("\n");
-				String contato = agenda.pesquisarContato(posicaoExibir);
-				if (contato != null) {
+				try {
 					System.out.println(agenda.pesquisarContato(posicaoExibir) + "\n");
-				} else {
+				} catch(NullPointerException npe) {
 					System.out.println("POSIÇÃO INVÁLIDA!\n");
-				}	
+				}
 				
 				break;
 				
 			default:
-				System.out.println("POSIÇÃO INVÁLIDA!\n");
+				System.out.println("OPÇÃO INVÁLIDA!\n");
 				break;
 			}
 		}
