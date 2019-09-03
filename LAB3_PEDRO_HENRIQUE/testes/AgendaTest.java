@@ -41,93 +41,11 @@ public class AgendaTest {
 	}
 	
 	@Test
-	public void testNomeNull() {
-		try {
-			Contato contatoInvalido =  new Contato(null, "Silva", "2456520");
-			fail("Era esperado um uma exceção de entrada nula.");
-		} catch (NullPointerException npe) {
-			
-		}
+	public void testDiferentesPosicoes() {
+		agenda.cadastrarContato(10, "Carlos", "Souza", "9845");
+		agenda.cadastrarContato(31, "Henrique", "Almeida", "4612");
+		agenda2.cadastrarContato(20, "Carlos", "Souza", "9741");
+		agenda2.cadastrarContato(31, "Henrique", "Almeida", "3241");
+		assertEquals(false, agenda.equals(agenda2));
 	}
-	
-	@Test
-	public void testSobreNomeNull() {
-		try {
-			Contato contatoInvalido =  new Contato("Carlos", null, "2456520");
-			fail("Era esperado um uma exceção de entrada nula.");
-		} catch (NullPointerException npe) {
-			
-		}
-	}
-	
-	@Test
-	public void testTelefoneNull() {
-		try {
-			Contato contatoInvalido =  new Contato("Carlos", "Silva", null);
-			fail("Era esperado um uma exceção de entrada nula.");
-		} catch (NullPointerException npe) {
-			
-		}
-	}
-	
-	@Test
-	public void testNomeVazio() {
-		try {
-			Contato contatoInvalido =  new Contato("", "Silva", "2456520");
-			fail("Era esperado um uma exceção de entrada nula.");
-		} catch (IllegalArgumentException iae) {
-			
-		}
-	}
-	
-	@Test
-	public void testSobreNomeVazio() {
-		try {
-			Contato contatoInvalido =  new Contato("Carlos", "", "2456520");
-			fail("Era esperado um uma exceção de entrada nula.");
-		} catch (IllegalArgumentException iae) {
-			
-		}
-	}
-	
-	@Test
-	public void testTelefoneVazio() {
-		try {
-			Contato contatoInvalido =  new Contato("Carlos", "Silva", "");
-			fail("Era esperado um uma exceção de entrada nula.");
-		} catch (IllegalArgumentException iae) {
-			
-		}
-	}
-	
-	@Test
-	public void testNomeEspacosVazios() {
-		try {
-			Contato contatoInvalido =  new Contato("    ", "Silva", "2456520");
-			fail("Era esperado um uma exceção de entrada nula.");
-		} catch (IllegalArgumentException iae) {
-			
-		}
-	}
-	
-	@Test
-	public void testSobreNomeEspacosVazios() {
-		try {
-			Contato contatoInvalido =  new Contato("Carlos", "  ", "2456520");
-			fail("Era esperado um uma exceção de entrada nula.");
-		} catch (IllegalArgumentException iae) {
-			
-		}
-	}
-	
-	@Test
-	public void testTelefoneEspacosVazios() {
-		try {
-			Contato contatoInvalido =  new Contato("Carlos", "Silva", "    ");
-			fail("Era esperado um uma exceção de entrada nula.");
-		} catch (IllegalArgumentException iae) {
-			
-		}
-	}
-
 }

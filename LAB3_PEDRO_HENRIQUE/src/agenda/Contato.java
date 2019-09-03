@@ -8,57 +8,57 @@ package agenda;
 public class Contato {
 	
 	/**
-	 * É o nome do contato,
+	 * E o nome do contato,
 	 */
 	private String nome;
 	
 	/**
-	 * É o sobrenome do contato.
+	 * E o sobrenome do contato.
 	 */
 	private String sobrenome;
 	
 	/**
-	 * É o telefone do contato.
+	 * E o telefone do contato.
 	 */
 	private String telefone;
 	
 	/**
-	 * Verifica se a string recebida está vazia ou se só possui espaços vazios,
-	 * caso sim, será lançado um IllegalArgumentException apontando o erro. 
+	 * Verifica se a string recebida esta vazia ou se so possuir espacos vazios,
+	 * caso sim, sera lancado um IllegalArgumentException apontando o erro. 
 	 * 
-	 * @param verificada é a string a ser verificada.
-	 * @param nomeDaString é o nome da variável que irá aparecer no erro.
+	 * @param verificada e a string a ser verificada.
+	 * @param nomeDaString e o nome da variavel que ira aparecer no erro.
 	 */
 	private static void validaString(String verificada, String nomeDaString) {
 		if(verificada.isEmpty()) {
-			throw new IllegalArgumentException("A string está " + nomeDaString + " vazia.");
+			throw new IllegalArgumentException("A string esta " + nomeDaString + " vazia.");
 		}
 		
 		if (verificada.trim().equals("")) {
-			throw new IllegalArgumentException("A string " + nomeDaString + " só possui espaços vazios.");
+			throw new IllegalArgumentException("A string " + nomeDaString + " so possui espacos vazios.");
 		}
 		
 	}
 	
 	/**
-	 * Verifica se os parâmetros recebidos são nulos, caso sim, será lançado um
-	 * NullPointerException. Além de utilizar o método validaString para verificar
-	 * se os nomes atribuídos são válidos. Se os nomes forem válidos, será
-	 * construído um objeto com o nome, sobrenome e telefone recebidos pro parâmetro.
+	 * Verifica se os parametros recebidos sao nulos, caso sim, sera lancado um
+	 * NullPointerException. Alem de utilizar o metodo validaString para verificar
+	 * se os nomes atribuidos sao validos. Se os nomes forem validos, sera
+	 * construido um objeto com o nome, sobrenome e telefone recebidos pro parametro.
 	 * 
-	 * @param nome é o nome a ser gravado no contato.
-	 * @param sobrenome é o sobrenome a ser gravado no contato.
-	 * @param telefone é o telefone a ser gravado no contato.
+	 * @param nome e o nome a ser gravado no contato.
+	 * @param sobrenome e o sobrenome a ser gravado no contato.
+	 * @param telefone e o telefone a ser gravado no contato.
 	 */
 	public Contato(String nome, String sobrenome, String telefone) {
 		if (nome == null) {
-			throw new NullPointerException("O nome recebido é do tipo nulo.");
+			throw new NullPointerException("O nome recebido e do tipo nulo.");
 		}
 		if(sobrenome == null) {
-			throw new NullPointerException("O sobrenome recebido é do tipo nulo.");
+			throw new NullPointerException("O sobrenome recebido e do tipo nulo.");
 		}
 		if (telefone == null) {
-			throw new NullPointerException("O telefone recebido é do tipo nulo.");
+			throw new NullPointerException("O telefone recebido e do tipo nulo.");
 		}
 		
 		validaString(nome, "nome");
@@ -98,8 +98,8 @@ public class Contato {
 	}
 
 	/**
-	 * Compara se dois contatos são iguais ao comparar se o nome e
-	 * sobrenome de ambos são iguais.
+	 * Compara se dois contatos sao iguais ao comparar se o nome e
+	 * sobrenome de ambos sao iguais.
 	 */
 	@Override
 	public boolean equals(Object obj) {
